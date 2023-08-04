@@ -1,0 +1,26 @@
+.cercles_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+.cercles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+
+.cercles img{
+    border: solid 10px #00bc77;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.cercles_text{
+    text-align: center;
+}

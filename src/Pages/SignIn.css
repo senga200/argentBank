@@ -1,0 +1,43 @@
+.form_container{
+    background-color: #12002b;
+    height: 35rem;
+    padding-top: 50px;
+}
+
+.sign-in_form {
+    /* Styles pour la div principale */
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto; /* Centrer le formulaire horizontalement */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer verticalement le contenu */
+    align-items: center; /* Centrer horizontalement le contenu */
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+  
+  .sign-in_form label {
+    /* Styles pour les labels */
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .sign-in_form input,
+  .sign-in_form button {
+    /* Styles pour les champs de saisie et le bouton */
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .sign-in_form button {
+    background-color: #00bc77;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: background-color 0.2s ease;
+  }
+  
