@@ -8,33 +8,32 @@
 //   }
 // }
 
-// authReducer.js
 const initialState = {
-  user: null,
-  loading: false,
+  user: null, // pas d'utilisateur connecté
+  loading: false, // pas de chargement
   error: null,
 };
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case "LOGIN_REQUEST":
+    case "LOGIN_REQUEST": // cf actionsTypes
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case "LOGIN_SUCCESS":
+    case "LOGIN_SUCCESS": // cf actionsTypes
       return {
         ...state,
         loading: false,
         user: action.payload,
       };
-    case "LOGIN_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
+    // case "LOGIN_FAILURE":
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     error: action.payload,
+    //   };
     default:
       return state;
   }

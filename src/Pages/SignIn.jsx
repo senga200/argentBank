@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useStore } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+//import { useSelector } from "react-redux";
 
 // import { signIn } from "../store/user/actions";
 
@@ -16,7 +18,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
@@ -31,13 +33,14 @@ const LoginForm = () => {
     setRememberMe(e.target.checked);
   };
 
+  const store = useStore();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Dispatchez l'action de connexion avec les informations du formulaire
-    dispatch(loginAction({ username, password, rememberMe }));
-    // Naviguez vers la page suivante ou effectuez toute autre action de navigation nécessaire
-    navigate("/dashboard"); // Remplacez "/dashboard" par l'URL de votre choix après la connexion réussie
+    loginAction(store, { username, password, rememberMe });
+    navigate("/dashboard"); // ou user
   };
+
+  //const token = useSelector((state) => state.login.token);
 
   return (
     <div className="sign-in_container ">
@@ -69,7 +72,7 @@ const LoginForm = () => {
                 required
               />
             </div>
-            <div className="input_form">
+            <div className="input_form_checkbox">
               <label htmlFor="rememberMe">
                 <input
                   type="checkbox"

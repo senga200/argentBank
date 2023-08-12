@@ -5,17 +5,21 @@
 }
 
 .sign-in_form {
-    /* Styles pour la div principale */
     background-color: #fff;
     max-width: 400px;
     margin: 0 auto; /* Centrer le formulaire horizontalement */
-
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centrer verticalement le contenu */
     align-items: center; /* Centrer horizontalement le contenu */
     padding-bottom: 40px;
     padding-top: 40px;
+  }
+
+  .input_form_checkbox {
+    border: solid 1px red;
+    display: flex;
+    align-items: center; /* Aligner les éléments horizontalement */
   }
   
   .sign-in_form label {

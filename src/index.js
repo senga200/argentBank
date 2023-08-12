@@ -1,21 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-//import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/Routes";
+import authReducer from "./Reducer/authReducer";
 
-//REDUX
+// REDUX
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./Reducer/index";
+import rootReducer from "./Reducer/indexReducer";
+//import authReducer from "./slices/authSlice"; // Importez le authReducer depuis le bon chemin
+
+// const store = configureStore({
+//   reducer: {
+//     root: rootReducer,
+//     auth: authReducer,
+//   // mettre false en production à cause du store
+//   devTools: true,
+// });
 
 const store = configureStore({
   reducer: rootReducer,
+  auth: authReducer,
   //mettre false en production à cause du store
   devTools: true,
 });
+
+console.log("store", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,9 +38,4 @@ root.render(
   </Provider>
 );
 
-reportWebVitals();
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

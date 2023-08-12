@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -10,10 +11,9 @@ function Header() {
         <img src="argentBankLogo.png" alt="Logo" />
       </div>
       <div className="sign-in">
-        {/* verifier si l'utilisateur est connecté à voir si le CX/CV es =t bon */}
-        <a class="link_SignIn" href="./sign-in.html">
+        <Link to="/sign-in" className="link_SignIn">
           <FontAwesomeIcon icon={faUserCircle} /> Sign In
-        </a>
+        </Link>
       </div>
     </div>
   );

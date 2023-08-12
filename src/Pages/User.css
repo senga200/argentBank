@@ -1,0 +1,25 @@
+.user_container{
+    background-color: #12002b;
+    height: 35rem;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_welcome{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_welcome button {
+    background-color: #00bc77;
+    color: white;
+    padding: 10px;
+}
+
+.user_panorama{
+    background-color: white;
+}
