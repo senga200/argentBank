@@ -1,7 +1,10 @@
 import React from "react";
+//import { useSelector } from "react-redux";
 import "./User.css";
 
 function User() {
+  //const user = useSelector((state) => state.auth.user);
+  // console.log("user datas", user);
   return (
     <div className="user_container">
       <div className="user_welcome">

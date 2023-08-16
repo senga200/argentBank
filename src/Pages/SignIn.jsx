@@ -19,7 +19,8 @@ const LoginForm = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   //const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //pas au bon endroit :
+  //const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -34,10 +35,11 @@ const LoginForm = () => {
   };
 
   const store = useStore();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     loginAction(store, { email: username, password, rememberMe });
-    //navigate("/dashboard"); // ou user
+    navigate("/user"); // ou user
   };
 
   //const token = useSelector((state) => state.login.token);

@@ -3,12 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlice = createSlice({
   name: "authSlice",
   initialState: {
-    token: null, // null ca veut dire que l'utilisateur n'est pas connecté et qu'il n'a pas de token, donc besoin de isAuthenticated: false, ????
+    token: null,
+    // null ca veut dire que l'utilisateur n'est pas connecté et qu'il n'a pas de token, donc besoin de isAuthenticated: false, ????
+    // isAuthenticated: false,
   },
   reducers: {
     loginSuccess: (state, action) => {
       console.log("loginSuccess");
       state.token = action.token;
+      //state.token = action.payload.token;
       console.log("action", action);
       state.isAuthenticated = true;
     },

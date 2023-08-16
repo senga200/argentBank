@@ -9,7 +9,7 @@ import router from "./Router/Routes";
 // REDUX
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import rootReducer from "./Reducer/indexReducer";
+//import rootReducer from "./Reducer/indexReducer";
 
 import authReducer from "./Redux/authSlice";
 
@@ -21,13 +21,20 @@ import authReducer from "./Redux/authSlice";
 //   devTools: true,
 // });
 
+// const store = configureStore({
+//   reducer: rootReducer,
+//   auth: authReducer,
+//   //mettre false en production à cause du store
+//   devTools: true,
+// });
+
 const store = configureStore({
-  reducer: rootReducer,
-  auth: authReducer,
+  reducer: {
+    auth: authReducer,
+  },
   //mettre false en production à cause du store
   devTools: true,
 });
-
 console.log("store", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
