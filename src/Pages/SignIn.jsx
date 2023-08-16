@@ -36,8 +36,8 @@ const LoginForm = () => {
   const store = useStore();
   const handleSubmit = (e) => {
     e.preventDefault();
-    loginAction(store, { username, password, rememberMe });
-    navigate("/dashboard"); // ou user
+    loginAction(store, { email: username, password, rememberMe });
+    //navigate("/dashboard"); // ou user
   };
 
   //const token = useSelector((state) => state.login.token);

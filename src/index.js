@@ -4,13 +4,14 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/Routes";
-import authReducer from "./Reducer/authReducer";
+//import authReducer from "./Reducer/authReducer";
 
 // REDUX
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./Reducer/indexReducer";
-//import authReducer from "./slices/authSlice"; // Importez le authReducer depuis le bon chemin
+
+import authReducer from "./Redux/authSlice";
 
 // const store = configureStore({
 //   reducer: {
@@ -32,9 +33,7 @@ console.log("store", store.getState());
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <RouterProvider router={router} />
   </Provider>
 );
 
