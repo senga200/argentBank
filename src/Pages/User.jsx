@@ -1,14 +1,14 @@
 import React from "react";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./User.css";
 
 function User() {
-  //const user = useSelector((state) => state.auth.user);
-  // console.log("user datas", user);
+  const user = useSelector((state) => state.auth.user);
+  console.log("user datas", user);
   return (
     <div className="user_container">
       <div className="user_welcome">
-        <h1>Welcome back</h1>
+        <h1>Welcome back{user && user.firstName}</h1>
         <button>Edit Name</button>
       </div>
       <div className="user_panorama">

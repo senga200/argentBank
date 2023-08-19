@@ -5,7 +5,7 @@ export async function loginAction(store, { email, password, rememberMe }) {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
       headers: {
-        // indiquer le type de contenu de la requête POST est de type JSON
+        // type de contenu de la requête POST est de type JSON
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),

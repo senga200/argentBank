@@ -12,6 +12,7 @@ import { configureStore } from "@reduxjs/toolkit";
 //import rootReducer from "./Reducer/indexReducer";
 
 import authReducer from "./Redux/authSlice";
+import userReducer from "./Redux/userSlice";
 
 // const store = configureStore({
 //   reducer: {
@@ -31,6 +32,7 @@ import authReducer from "./Redux/authSlice";
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    user: userReducer,
   },
   //mettre false en production à cause du store
   devTools: true,

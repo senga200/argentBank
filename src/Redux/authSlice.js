@@ -27,6 +27,6 @@ const authSlice = createSlice({
   },
 });
 // ajouter logout dans l'export
-export const { loginSuccess, loginFailure } = authSlice.actions; // ou = authSlice ??
+export const { loginSuccess, loginFailure } = authSlice.actions;
 
-export default authSlice.reducer; // ou = authSlice ??
+export default authSlice.reducer;
