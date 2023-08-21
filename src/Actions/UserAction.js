@@ -1,27 +1,22 @@
-import { updateProfile } from "../Redux/userSlice";
-
 export async function fetchUserProfile(store, token) {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "GET",
       headers: {
+        // sensé utiliser le token pour authentifier l'utilisateur
         Authorization: `Bearer ${token}`,
       },
     });
 
     if (response.ok) {
       const userProfileData = await response.json();
-      console.log("userProfileData dis moi que c est ok", userProfileData);
-      store.dispatch(updateProfile(userProfileData));
-      //return userProfileData;
+      console.log("userProfileData:", userProfileData);
+      store.dispatch({ type: "userProfileUpdate", payload: userProfileData });
     } else {
-      // throw new Error("erreur dans fetch user profile");
-      // Connexion échouée on envoie l'action loginFailure à Redux
-      store.dispatch(updateProfile());
+      throw new Error("Erreur lors du chargement du profil utilisateur");
     }
   } catch (error) {
     console.error("Erreur dans fetch user profile:", error);
-    //throw error;
-    store.dispatch(updateProfile());
+    throw error;
   }
 }
