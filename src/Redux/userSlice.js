@@ -19,6 +19,7 @@ const userSlice = createSlice({
       // ici rien ne se passe
       console.log("userProfileUpdate", action.payload);
       state.firstName = action.firstName;
+      console.log("state", state);
     },
   },
   // builder pour declarer les reducers et actions

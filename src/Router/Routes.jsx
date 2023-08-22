@@ -2,6 +2,7 @@ import React from "react";
 //import ReactDOM from 'react-dom';
 import { createBrowserRouter } from "react-router-dom";
 import Header from "../Components/Header";
+import HeaderUser from "../Components/HeaderUser";
 import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
 import User from "../Pages/User";
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
     path: "/user",
     element: (
       <>
-        <Header />
+        <HeaderUser />
         <User />
       </>
     ),

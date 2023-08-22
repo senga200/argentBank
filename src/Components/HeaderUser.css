@@ -1,0 +1,28 @@
+
+.header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+ */}
+
+.header__logo img {
+    width:50%;
+    margin-left: 20px;
+}
+
+.link_SignOut{
+    margin-right: 20px;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+
+}
