@@ -1,17 +1,15 @@
-export async function fetchUserProfile(store, token) {
+export async function fetchUserProfile(token) {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "POST",
       headers: {
-        // sensé utiliser le token pour authentifier l'utilisateur
         Authorization: `Bearer ${token}`,
       },
     });
 
     if (response.ok) {
       const userProfileData = await response.json();
-      console.log("userProfileData:", userProfileData);
-      store.dispatch({ type: "userProfileUpdate", payload: userProfileData });
+      return userProfileData; // Retourne les données au lieu de dispatch donc suppresssion de store.dispatch
     } else {
       throw new Error("Erreur lors du chargement du profil utilisateur");
     }
