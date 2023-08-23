@@ -7,7 +7,7 @@ export const fetchUserProfileAsync = createAsyncThunk(
   "user/fetchUserProfile",
   async (token) => {
     // ici rien ne se passe
-    return fetchUserProfile(token);
+    return fetchUserProfile("hello", token);
   }
 );
 

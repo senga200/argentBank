@@ -32,7 +32,7 @@ import userReducer from "./Redux/userSlice";
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    user: userReducer,
+    profile: userReducer,
   },
   //mettre false en production à cause du store
   devTools: true,

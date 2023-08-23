@@ -1,7 +1,7 @@
 export async function fetchUserProfile(store, token) {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-      method: "GET",
+      method: "POST",
       headers: {
         // sensé utiliser le token pour authentifier l'utilisateur
         Authorization: `Bearer ${token}`,

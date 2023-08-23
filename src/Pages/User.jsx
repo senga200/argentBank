@@ -44,13 +44,14 @@ function User() {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
 
-  const token = localStorage.getItem("token"); // Récupérer le token du localStorage
+  const login = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (token) {
-      dispatch(fetchUserProfileAsync(token)); // Appeler l'action asynchrone pour charger le profil utilisateur
+    console.log(login);
+    if (login?.token) {
+      dispatch(fetchUserProfileAsync(login.token)); // Appeler l'action asynchrone pour charger le profil utilisateur
     }
-  }, [dispatch, token]);
+  }, [dispatch, login]);
 
   return (
     <div className="user_container">
