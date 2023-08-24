@@ -14,21 +14,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./Redux/authSlice";
 import userReducer from "./Redux/userSlice";
 
-// const store = configureStore({
-//   reducer: {
-//     root: rootReducer,
-//     auth: authReducer,
-//   // mettre false en production à cause du store
-//   devTools: true,
-// });
-
-// const store = configureStore({
-//   reducer: rootReducer,
-//   auth: authReducer,
-//   //mettre false en production à cause du store
-//   devTools: true,
-// });
-
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -37,7 +22,6 @@ const store = configureStore({
   //mettre false en production à cause du store
   devTools: true,
 });
-console.log("store", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -45,5 +29,6 @@ root.render(
     <RouterProvider router={router} />
   </Provider>
 );
+console.log("store de index", store.getState());
 
 reportWebVitals();

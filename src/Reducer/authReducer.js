@@ -28,12 +28,12 @@ export default function authReducer(state = initialState, action) {
         loading: false,
         user: action.payload,
       };
-    // case "LOGIN_FAILURE":
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     error: action.payload,
-    //   };
+    case "LOGIN_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
