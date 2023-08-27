@@ -22,9 +22,10 @@ export async function loginAction(store, { email, password }) {
     }
   } catch (error) {
     console.error(
-      "Erreur de connexion loginAction: mauvais mot de passe ? email ?",
+      "Erreur de connexion loginAction: mauvais mot de passe ?",
       error
     );
+    console.log("erreur dans ton fetch !!! mauvais mot de passe ? d'email ? ");
     // Connexion échouée on envoie l'action loginFailure à Redux
     store.dispatch(loginFailure());
     throw error;
