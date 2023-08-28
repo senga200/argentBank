@@ -9,15 +9,17 @@ import router from "./Router/Routes";
 // REDUX
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import updateSlice from "./Redux/updateSlice";
 //import rootReducer from "./Reducer/indexReducer";
 
 import authReducer from "./Redux/authSlice";
-import userReducer from "./Redux/userSlice";
+import userSlice from "./Redux/userSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    profile: userReducer,
+    profile: userSlice,
+    updateSlice: updateSlice,
   },
   //mettre false en production à cause du store
   devTools: true,
