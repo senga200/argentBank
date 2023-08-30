@@ -1,6 +1,5 @@
 import React from "react";
 import "./SignIn.css";
-import Footer from "../Components/Footer";
 //imoort de loginAction pour la connexion
 import { loginAction } from "../Actions/loginActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -111,7 +110,6 @@ const LoginForm = () => {
           {isError && <p className="error-message">{errorMessage}</p>}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

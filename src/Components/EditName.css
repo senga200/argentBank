@@ -24,4 +24,11 @@ button {
 
 .button_editName button{
     margin: 10px;
+    width: 6rem;
+}
+
+@media (max-width: 768px)  {
+    .input_editName input{
+    width: 7rem ;  
+    }
 }

@@ -1,9 +1,10 @@
 
-.header {
+.headerHome {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #2c3e50;
 }
 
 .header__logo img {
@@ -13,7 +14,7 @@
 
 .link_SignIn{
     margin-right: 20px;
-    color: #000;
+    color: #2c3e50;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -25,44 +26,14 @@
 
 
 @media (max-width: 768px) {
- .header{
+ .headerHome{
     width: 100%;
 }
-.sign-in {
-    width:80%;
+.sign-in_home {
+    width:auto;
     font-size: 0.8rem;
     padding:0;
     font-weight: normal;
 }
-
-
 }
-    /* .hero {
-      height: 400px;
-      background-position: 0% 33%;
-    }
-  
-    .hero-content {
-      position: absolute;
-      top: 50px;
-      right: 50px;
-      width: 300px;
-      margin: 2rem;
-    }
-  
-    .hero-content .subtitle {
-      font-size: 1.5rem;
-    }
-  
-    .hero-content .text {
-      font-size: 1.2rem;
-    }
-  }
-  
-  .features {
-    display: flex;
-    flex-direction: column;
-  }
-  
 
- */

@@ -6,6 +6,7 @@ import HeaderUser from "../Components/HeaderUser";
 import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
 import User from "../Pages/User";
+import Footer from "../Components/Footer";
 
 // import { AuthContextProvider } from './context/AuthContext'
 // import { UserContextProvider } from './context/UserContext'
@@ -15,7 +16,12 @@ import User from "../Pages/User";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <>
+        <Home />
+        <Footer />
+      </>
+    ),
   },
 
   {
@@ -24,6 +30,7 @@ const router = createBrowserRouter([
       <>
         <Header />
         <SignIn />
+        <Footer />
       </>
     ),
   },
@@ -33,6 +40,7 @@ const router = createBrowserRouter([
       <>
         <HeaderUser />
         <User />
+        <Footer />
       </>
     ),
   },

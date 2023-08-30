@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #2c3e50;
  }
  .profile_header{
      display: flex;
@@ -26,7 +27,7 @@
     justify-content: space-around;
     padding: 10px 20px;
     margin-right: 10px;
-    color: #000;
+    color: #2c3e50;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -38,7 +39,7 @@
     display: flex;
     justify-content:space-around;
     padding: 10px 20px;
-    color: #000;
+    color: #2c3e50;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
