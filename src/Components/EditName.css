@@ -4,10 +4,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 2rem;
 }
 
-.user_welcome button {
+.user_welcome h1{
+    text-align: center;
+}
+
+button {
     background-color: #00bc77;
     color: white;
     padding: 10px;
+}
+
+.input_editName input{
+   padding: 10px;
+   margin: 10px;
+}
+
+.button_editName button{
+    margin: 10px;
 }

@@ -39,7 +39,11 @@ function EditName() {
     console.log("Edit first name:", editFirstName); //ok
     console.log("Edit last name:", editLastName); //ok
   };
-
+  /////////////////////
+  const handleCancelClick = () => {
+    setEditMode(false);
+  };
+  /////////////////////
   const handleSaveClick = () => {
     // Dispatch l'action pour mettre à jour le profil
     dispatch(
@@ -53,9 +57,22 @@ function EditName() {
     // Désactiver le mode édition
     setEditMode(false);
   };
+  //////////////////////
+
+  /////////////////////////
+
+  // const handleSaveClick = async () => {
+  //   // Dispatch l'action Redux pour mettre à jour le profil utilisateur
+  //   await dispatch(
+  //     updateUserProfileAsync(userAuth.token, editFirstName, editLastName)
+  //   );
+
+  //   // Désactiver le mode édition
+  //   setEditMode(false);
+  // };
 
   useEffect(() => {
-    console.log(userAuth); //ok
+    console.log("useEffect EditName", userAuth); //ok
     if (userAuth?.token) {
       dispatch(fetchUserProfileAsync(userAuth.token)); // Appeler l'action asynchrone pour charger le profil utilisateur
     }
@@ -65,36 +82,35 @@ function EditName() {
   // si editname est true, on affiche le bouton save sinon on affiche le bouton edit
   return (
     <div className="editName">
-      <div className="essai">
-        <div className="user_welcome">
-          <h1>
-            Welcome back{" "}
-            {editMode ? (
+      <div className="user_welcome">
+        <h1>
+          Welcome back <br />{" "}
+          {editMode ? (
+            <div className="input_editName">
               <input
                 type="text"
                 value={editFirstName}
                 onChange={(e) => setEditFirstName(e.target.value)}
               />
-            ) : (
-              userProfile && userProfile.body.firstName
-            )}{" "}
-            {editMode ? (
               <input
                 type="text"
                 value={editLastName}
                 onChange={(e) => setEditLastName(e.target.value)}
               />
-            ) : (
-              userProfile && userProfile.body.lastName
-            )}{" "}
-            !
-          </h1>
-          {editMode ? (
-            <button onClick={handleSaveClick}>Save</button>
+            </div>
           ) : (
-            <button onClick={handleEditClick}>Edit Name</button>
+            userProfile &&
+            `${userProfile.body.firstName} ${userProfile.body.lastName} !`
           )}
-        </div>
+        </h1>
+        {editMode ? (
+          <div className="button_editName">
+            <button onClick={handleSaveClick}>Save</button>
+            <button onClick={handleCancelClick}>Cancel</button>
+          </div>
+        ) : (
+          <button onClick={handleEditClick}>Edit Name</button>
+        )}
       </div>
     </div>
   );

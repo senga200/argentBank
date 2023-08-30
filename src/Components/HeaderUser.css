@@ -1,28 +1,74 @@
 
-.header {
+.headerUser {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border-bottom: 1px solid #eee;
-    padding: 20px 0;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
- */}
-
+ }
+ .profile_header{
+     display: flex;
+ }
+.profile_headerLogo {
+    display: flex;
+    width: 350px;
+}
 .header__logo img {
     width:50%;
     margin-left: 20px;
 }
+.sign-out{
+    width:100%;
+}
 
 .link_SignOut{
-    margin-right: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    margin-right: 10px;
     color: #000;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
-    padding: 10px 20px;
+}
 
+
+.profile_headerLogo{
+    width: 150px;
+    display: flex;
+    justify-content:space-around;
+    padding: 10px 20px;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .headerUser{
+        display: flex;
+    } 
+    .header__logo{
+        flex:1;
+    }
+    .header__logo img{
+    width: 100px;
+    }
+
+    .profile_headerLogo {
+    font-size: 12px;
+    flex:0.5;
+    justify-content: space-evenly;
+
+    }
+    .sign-out{
+    margin-right: 50px;
+    flex: 1;
+    }
+    .link_SignOut{
+    width: auto;
+    font-size: 12px;
+
+    }
 }

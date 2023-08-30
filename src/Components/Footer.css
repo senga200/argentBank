@@ -1,0 +1,13 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #ccc;
+    padding: 1rem 0 1rem;
+
+}
+
+.footer p {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

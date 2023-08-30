@@ -2,13 +2,15 @@ import React from "react";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
       <div className="header__logo">
-        <img src="argentBankLogo.png" alt="Logo" />
+        <NavLink to="/">
+          <img src="argentBankLogo.png" alt="Logo" />
+        </NavLink>
       </div>
       <div className="sign-in">
         <Link to="/sign-in" className="link_SignIn">

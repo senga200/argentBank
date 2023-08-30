@@ -7,34 +7,34 @@
 .sign-in_form {
     background-color: #fff;
     max-width: 400px;
-    margin: 0 auto; /* Centrer le formulaire horizontalement */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrer verticalement le contenu */
-    align-items: center; /* Centrer horizontalement le contenu */
+    justify-content: center;
+    align-items: center; 
     padding-bottom: 40px;
     padding-top: 40px;
+    text-align: center;
   }
 
   .input_form_checkbox {
-    border: solid 1px red;
     display: flex;
-    align-items: center; /* Aligner les éléments horizontalement */
   }
-  
+
   .sign-in_form label {
-    /* Styles pour les labels */
+    display: flex;
     font-weight: bold;
     margin-bottom: 5px;
+    padding: 10px;
+
   }
   
   .sign-in_form input,
   .sign-in_form button {
-    /* Styles pour les champs de saisie et le bouton */
     padding: 10px;
     border: 1px solid #ccc;
-    width: 100%;
     box-sizing: border-box;
+
   }
   
   .sign-in_form button {
@@ -43,9 +43,38 @@
     cursor: pointer;
     text-decoration: underline;
     transition: background-color 0.2s ease;
+    width: 100%;
   }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+.sign-in_form.error-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+
+
+
   
 
-  .essai {
-    border: solid 1px red;
+  @media (max-width: 768px) {
+    .sign-in_form {
+      margin: 30px;
+    }
   }

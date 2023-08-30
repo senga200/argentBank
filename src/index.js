@@ -19,7 +19,7 @@ const store = configureStore({
   reducer: {
     auth: authReducer,
     profile: userSlice,
-    updateSlice: updateSlice,
+    update: updateSlice,
   },
   //mettre false en production à cause du store
   devTools: true,
