@@ -1,4 +1,5 @@
 import EditName from "../Components/EditName";
+import Button from "../Components/Button";
 
 import "./User.css";
 
@@ -14,7 +15,7 @@ function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button text="View transactions" />
           </div>
         </section>
 
@@ -25,7 +26,7 @@ function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button text="View transactions" />
           </div>
         </section>
 
@@ -36,7 +37,7 @@ function User() {
             <p className="account-amount-description">Current Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button text="View transactions" />
           </div>
         </section>
       </div>

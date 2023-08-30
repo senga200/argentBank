@@ -11,12 +11,6 @@
     text-align: center;
 }
 
-button {
-    background-color: #00bc77;
-    color: white;
-    padding: 10px;
-}
-
 .input_editName input{
    padding: 10px;
    margin: 10px;
@@ -24,7 +18,7 @@ button {
 
 .button_editName button{
     margin: 10px;
-    width: 6rem;
+    width: 110px;
 }
 
 @media (max-width: 768px)  {

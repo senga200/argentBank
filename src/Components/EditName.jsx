@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfileAsync } from "../Actions/UserAction";
 import { updateUserProfileAsync } from "../Actions/updateAction";
 import "./EditName.css";
+import Button from "./Button";
 
 function EditName() {
   const dispatch = useDispatch();
@@ -105,11 +106,13 @@ function EditName() {
         </h1>
         {editMode ? (
           <div className="button_editName">
-            <button onClick={handleSaveClick}>Save</button>
-            <button onClick={handleCancelClick}>Cancel</button>
+            <Button text="Save" onClick={handleSaveClick} />
+            <Button text="Cancel" onClick={handleCancelClick} />
           </div>
         ) : (
-          <button onClick={handleEditClick}>Edit Name</button>
+          <div className="button_editName">
+            <Button text="Edit Name" onClick={handleEditClick} />
+          </div>
         )}
       </div>
     </div>
