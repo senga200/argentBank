@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initialisation du state //en vérifiant le localStorage
 const initialState = {
-  //token: localStorage.getItem("token"), // Récupérer le token du localStorage
   token: null,
-  isAuthenticated: !!localStorage.getItem("token"), // Vérifier si le token est présent
+  // Vérifier si le token est présent
+  isAuthenticated: localStorage.getItem("token") !== null,
 };
 
 const authSlice = createSlice({
@@ -25,6 +25,11 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       localStorage.removeItem("token"); // Supprimer le token du localStorage
     },
+    // rememberMe: (state, action) => {
+    //   console.log("rememberMe");
+    //   state.token = action.payload.token; // Mettre à jour le token dans le state
+    //   state.isAuthenticated = true;
+    // },
   },
 });
 

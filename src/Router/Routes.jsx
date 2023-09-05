@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import HeaderUser from "../Components/HeaderUser";
 import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
+import Err404 from "../Pages/Err404";
 import User from "../Pages/User";
 import Footer from "../Components/Footer";
 
@@ -47,7 +48,13 @@ const router = createBrowserRouter([
 
   {
     path: "/*",
-    element: <h1>404</h1>,
+    element: (
+      <>
+        <Header />
+        <Err404 />
+        <Footer />
+      </>
+    ),
   },
 ]);
 

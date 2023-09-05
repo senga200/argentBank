@@ -1,7 +1,7 @@
 import { loginSuccess, loginFailure } from "../Redux/authSlice";
 
-//remmeberMe en paramètre au meme titre que email et password
-export async function loginAction(store, { email, password }) {
+//export async function loginAction(store, { email, password }) {
+export async function loginAction(store, { email, password, rememberMe }) {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
@@ -17,6 +17,11 @@ export async function loginAction(store, { email, password }) {
       store.dispatch(loginSuccess(userData.body));
       // on appele le dispatch pour envoyer l'action loginSuccess à Redux avec les données utilisateur userdata, à voir pour mettre le if rememberMe ici pour le stocker dans localstorage.setItem("token", userData.token);
       console.log("userData du fetch loginAction:", userData);
+      //condition pour le rememberMe
+      if (rememberMe) {
+        localStorage.setItem("token", userData.body.token);
+        console.log("rememberMe:", rememberMe);
+      }
     } else {
       throw new Error("erreur dans ton fetch !!! ");
     }
