@@ -12,6 +12,10 @@ const userSlice = createSlice({
     //builder pour construire des reducers supplementaires qui ne sont pas générées par createSlice
     //addcase : gestionnaire d'action et deux parametres : le type d'action et fonction de rappel pour MAJ le state. fulfilled : action réussie
     builder.addCase(fetchUserProfileAsync.fulfilled, (state, action) => {
+      console.log(
+        "action.payload du fetchUserProfileAsync userSlice:",
+        action.payload
+      );
       // Met à jour le state avec les données du profil utilisateur
       return action.payload;
     });

@@ -16,7 +16,10 @@ export async function loginAction(store, { email, password, rememberMe }) {
       const userData = await response.json();
       store.dispatch(loginSuccess(userData.body));
       // on appele le dispatch pour envoyer l'action loginSuccess à Redux avec les données utilisateur userdata, à voir pour mettre le if rememberMe ici pour le stocker dans localstorage.setItem("token", userData.token);
-      console.log("userData du fetch loginAction:", userData);
+      console.log(
+        "et puis ça c'est le token du userData du fetch loginAction:",
+        userData.body.token
+      );
       //condition pour le rememberMe
       if (rememberMe) {
         localStorage.setItem("token", userData.body.token);
