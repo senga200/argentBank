@@ -25,11 +25,11 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       localStorage.removeItem("token"); // Supprimer le token du localStorage
     },
-    // rememberMe: (state, action) => {
-    //   console.log("rememberMe");
-    //   state.token = action.payload.token; // Mettre à jour le token dans le state
-    //   state.isAuthenticated = true;
-    // },
+    rememberMe: (state, action) => {
+      state.token = action.payload.token; // Mettre à jour le token dans le state
+      state.isAuthenticated = true;
+      console.log("rememberMe", state.token);
+    },
   },
 });
 

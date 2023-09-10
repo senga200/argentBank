@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/Routes";
+//import { createBrowserHistory } from "history";
 //import authReducer from "./Reducer/authReducer";
 
 // REDUX
@@ -17,7 +18,7 @@ import userSlice from "./Redux/userSlice";
 
 const store = configureStore({
   reducer: {
-    auth: authReducer,
+    auth: authReducer, //auth: authSlice
     profile: userSlice,
     update: updateSlice,
   },
