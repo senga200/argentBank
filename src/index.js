@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router/Routes";
+import { loginSuccess } from "./Redux/authSlice";
 //import { createBrowserHistory } from "history";
 //import authReducer from "./Reducer/authReducer";
 
@@ -24,6 +25,15 @@ const store = configureStore({
   },
   //mettre false en production à cause du store
   devTools: true,
+});
+
+//vérifier si le token est présent dans le local storage lors de la visite ultérieure de la page
+
+window.addEventListener("load", () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    store.dispatch(loginSuccess({ token: token }));
+  }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
