@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector, useStore } from "react-redux";
-import { fetchUserProfileAsync } from "../Actions/UserAction";
-import { updateUserProfileAsync } from "../Actions/updateAction";
+import { useDispatch, useSelector } from "react-redux";
+import { setProfile, setProfileFailure } from "../Redux/userSlice";
 import "./EditName.css";
 import Button from "./Button";
-import { updateFirstName, updateLastName } from "../Redux/updateSlice";
 
 function EditName() {
-  const store = useStore();
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
+  console.log("userProfile dans editName", userProfile);
   const userAuth = useSelector((state) => state.auth);
-  const editFirstName = useSelector((state) => state.update.firstName);
-  const editLastName = useSelector((state) => state.update.lastName);
+  const [editFirstName, setEditFirstName] =
+    useState(userProfile.firstName) || "";
+  const [editLastName, setEditLastName] = useState(userProfile.lastName) || "";
 
   const [isEditMode, setEditMode] = useState(false);
 
@@ -20,17 +19,30 @@ function EditName() {
   console.log(token);
 
   useEffect(() => {
-    if (userAuth?.token) {
-      dispatch(fetchUserProfileAsync(userAuth.token));
+    if (token) {
+      fetch("http://localhost:3001/api/v1/user/profile", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("erreur dans ton fetch !!! ");
+          }
+          return response.json();
+        })
+        .then((userData) => {
+          console.log("regarde ici", token);
+          console.log("userProfileData du fetchUserProfile:", userData);
+          dispatch(setProfile(userData.body));
+        })
+        .catch((error) => {
+          console.error("Erreur dans fetch user profile:", error);
+          dispatch(setProfileFailure());
+        });
     }
-  }, [dispatch, userAuth]);
-
-  useEffect(() => {
-    if (userProfile && userProfile.body) {
-      dispatch(updateFirstName(userProfile.body.firstName));
-      dispatch(updateLastName(userProfile.body.lastName));
-    }
-  }, [dispatch, userProfile]);
+  }, [token, dispatch]);
 
   const handleEditClick = () => {
     setEditMode(true);
@@ -41,15 +53,31 @@ function EditName() {
   };
 
   const handleSaveClick = () => {
-    dispatch(updateFirstName(editFirstName));
-    dispatch(updateLastName(editLastName));
-    dispatch(
-      updateUserProfileAsync(store, {
+    fetch(`http://localhost:3001/api/v1/user/profile`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
         firstName: editFirstName,
         lastName: editLastName,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("erreur dans ton fetch !!! ");
+        }
+        return response.json();
       })
-    );
-    console.log(store.getState());
+      .then((userData) => {
+        console.log("userProfileData du fetchUserProfile:", userData);
+        dispatch(setProfile(userData.body));
+      })
+      .catch((error) => {
+        console.error("Erreur dans fetch user profile:", error);
+        dispatch(setProfileFailure());
+      });
 
     setEditMode(false);
   };
@@ -64,16 +92,16 @@ function EditName() {
               <input
                 type="text"
                 value={editFirstName}
-                onChange={(e) => dispatch(updateFirstName(e.target.value))}
+                onChange={(e) => setEditFirstName(e.target.value)}
               />
               <input
                 type="text"
                 value={editLastName}
-                onChange={(e) => dispatch(updateLastName(e.target.value))}
+                onChange={(e) => setEditLastName(e.target.value)}
               />
             </div>
           ) : (
-            userProfile && `${editFirstName} ${editLastName} !`
+            userProfile && `${userProfile.firstName} ${userProfile.lastName} !`
           )}
         </h1>
         {isEditMode ? (

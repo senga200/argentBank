@@ -8,7 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 function HeaderUser() {
   const dispatch = useDispatch();
-  const userProfile = useSelector((state) => state.profile);
+  const state = useSelector((state) => state);
+  const firstName = state.profile.firstName;
+
   const handleLogOut = () => {
     dispatch(logOut()); // action de deconnexion
   };
@@ -23,7 +25,7 @@ function HeaderUser() {
       <div className="profile_header">
         <div className="profile_headerLogo">
           <FontAwesomeIcon icon={faUserCircle} />
-          {userProfile && userProfile.body.firstName}
+          {firstName}
         </div>
         <div className="sign-out">
           <Link to="/sign-in" className="link_SignOut" onClick={handleLogOut}>

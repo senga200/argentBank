@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Initialisation du state //en vérifiant le localStorage
 const initialState = {
   token: null,
   // Vérifier si le token est présent

@@ -35,7 +35,6 @@
 
 
 .profile_headerLogo{
-    width: 150px;
     display: flex;
     justify-content:space-around;
     padding: 10px 20px;
@@ -64,12 +63,12 @@
 
     }
     .sign-out{
-    margin-right: 50px;
-    flex: 1;
+    margin-right: 150px;
     }
-    .link_SignOut{
-    width: auto;
-    font-size: 12px;
 
+    .link_SignOut{
+    width: 70px;
+    margin: 0;
+    font-size: 12px;
     }
 }
