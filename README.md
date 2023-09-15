@@ -13,7 +13,7 @@ prérequis : MongoDB et Node.js
 - swagger 
 
 
-[ici le lien de l'API bank-API](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git)
+[bank-API](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git)
 
 
 
