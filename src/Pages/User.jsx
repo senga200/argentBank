@@ -1,6 +1,5 @@
 import EditName from "../Components/EditName";
 import Button from "../Components/Button";
-
 import "./User.css";
 
 function User() {

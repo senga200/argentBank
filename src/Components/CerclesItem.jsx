@@ -28,7 +28,7 @@ function CerclesItem() {
         <div key={index} className="cercles">
           <img
             src={Object.values(logo)[0]} //récupère la valeur de l'objet (le chemin de l'image)
-            alt={`Logo ${index + 1}`}
+            alt="infoArgentBank"
           />
           <div className="cercles_text">
             <h3>{logo.title}</h3>

@@ -7,7 +7,7 @@ import Button from "./Button";
 function EditName() {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
-  console.log("userProfile dans editName", userProfile);
+  //console.log("userProfile dans editName", userProfile);
   const userAuth = useSelector((state) => state.auth);
   const [editFirstName, setEditFirstName] =
     useState(userProfile.firstName) || "";
@@ -16,7 +16,6 @@ function EditName() {
   const [isEditMode, setEditMode] = useState(false);
 
   const token = userAuth.token;
-  console.log(token);
 
   useEffect(() => {
     if (token) {
@@ -28,17 +27,16 @@ function EditName() {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("erreur dans ton fetch !!! ");
+            throw new Error("erreur lors de la récupération du profil");
           }
           return response.json();
         })
         .then((userData) => {
-          console.log("regarde ici", token);
-          console.log("userProfileData du fetchUserProfile:", userData);
+          // console.log("userProfileData du fetchUserProfile:", userData);
           dispatch(setProfile(userData.body));
         })
         .catch((error) => {
-          console.error("Erreur dans fetch user profile:", error);
+          //console.error("Erreur dans fetch user profile:", error);
           dispatch(setProfileFailure());
         });
     }
@@ -66,16 +64,16 @@ function EditName() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("erreur dans ton fetch !!! ");
+          throw new Error("erreur lors de la modification du nom ");
         }
         return response.json();
       })
       .then((userData) => {
-        console.log("userProfileData du fetchUserProfile:", userData);
+        //console.log("userProfileData du fetchUserProfile:", userData);
         dispatch(setProfile(userData.body));
       })
       .catch((error) => {
-        console.error("Erreur dans fetch user profile:", error);
+        //console.error("Erreur dans fetch user profile:", error);
         dispatch(setProfileFailure());
       });
 

@@ -32,12 +32,11 @@ const LoginForm = () => {
 
   const handleRememberMeChange = (e) => {
     setRememberMe(e.target.checked);
-    console.log("Remember me:", e.target.checked);
+    // console.log("Remember me:", e.target.checked);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("rememberMe", e.target.checked);
     fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
       headers: {
@@ -47,23 +46,17 @@ const LoginForm = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("erreur dans ton fetch !!! ");
+          throw new Error("erreur lors de la soumission du formulaire");
         }
         return response.json();
       })
       .then((response) => {
-        console.log("reponse fetch loginAction:", response);
+        //console.log("reponse fetch loginAction:", response);
         dispatch(loginSuccess(response.body));
-        console.log("localStorage:", window.localStorage.getItem("token"));
-        console.log(
-          "et puis ça c'est le token du userData du fetch loginAction:",
-          response.body.token
-        );
+        //console.log("localStorage:", window.localStorage.getItem("token"));
 
-        //condition pour le rememberMe
         if (rememberMe) {
           localStorage.setItem("token", response.body.token);
-          console.log("rememberMe:", rememberMe);
         }
         navigate("/user");
       })
@@ -78,7 +71,6 @@ const LoginForm = () => {
   return (
     <div className="sign-in_container ">
       <div className="form_container">
-        {/* <div className="sign-in_form"> */}
         <div className={`sign-in_form ${isError ? "error-shake" : ""}`}>
           <div className="sign-in_icon">
             <FontAwesomeIcon icon={faUserCircle} />

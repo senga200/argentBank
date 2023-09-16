@@ -27,7 +27,7 @@ const authSlice = createSlice({
     rememberMe: (state, action) => {
       state.token = action.payload.token; // Mettre à jour le token dans le state
       state.isAuthenticated = true;
-      console.log("rememberMe", state.token);
+      // console.log("rememberMe", state.token);
     },
   },
 });
